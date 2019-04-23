@@ -1,0 +1,7 @@
+{
+  "name": "cs-demo-couchbase-lite",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
