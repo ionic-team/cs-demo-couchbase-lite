@@ -1,5 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NavController } from '@ionic/angular';
+
+import { createNavControllerMock } from '../../../test/mocks';
 
 import { HomePage } from './home.page';
 
@@ -9,10 +12,12 @@ describe('HomePage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePage ],
+      declarations: [HomePage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
-      .compileComponents();
+      providers: [
+        { provide: NavController, useFactory: createNavControllerMock }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

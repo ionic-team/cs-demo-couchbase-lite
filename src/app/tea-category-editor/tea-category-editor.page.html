@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Tea Category</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #categoryEditorForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input
+          id="name-input"
+          type="text"
+          name="name"
+          [(ngModel)]="name"
+          #nameInput="ngModel"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea
+          id="description-textarea"
+          name="description"
+          [(ngModel)]="description"
+          #descriptionInput="ngModel"
+          required
+          rows="5"
+        ></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
+
+<ion-toolbar>
+  <ion-button
+    id="save-button"
+    expand="full"
+    [disabled]="!categoryEditorForm.form.valid"
+    (click)="save()"
+    >Save</ion-button
+  >
+</ion-toolbar>
