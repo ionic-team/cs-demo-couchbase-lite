@@ -24,7 +24,6 @@ export class HomePage {
   }
 
   addTeaCategory() {
-    console.log('add button clicked');
     this.navController.navigateForward(['tea-category-editor']);
   }
 }
