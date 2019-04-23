@@ -25,7 +25,7 @@
     "@ionic-native/status-bar": "~5.0.0",
     "@ionic/angular": "~4.1.0",
     "cordova-android": "8.0.0",
-    "cordova-ios": "5.0.1",
+    "cordova-ios": "~5.0.1",
     "core-js": "~2.5.4",
     "ionic-enterprise-couchbase-lite": "file:./ionic-enterprise/couchbase-lite/lib",
     "ionic-enterprise-plugin-couchbase-lite": "file:ionic-enterprise/couchbase-lite/cordova",
@@ -77,8 +77,8 @@
       "ionic-enterprise-plugin-couchbase-lite": {}
     },
     "platforms": [
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
