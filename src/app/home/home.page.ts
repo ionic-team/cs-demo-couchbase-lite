@@ -19,8 +19,9 @@ export class HomePage implements OnInit {
     private navController: NavController
   ) {}
 
-  async ngOnInit() {
-    this.categories = await this.teaCategories.getAll();
+  ngOnInit() {
+    this.fetchCategories();
+    this.teaCategories.onChange(() => this.fetchCategories());
   }
 
   addTeaCategory() {
@@ -30,5 +31,9 @@ export class HomePage implements OnInit {
   editTeaCategory(id: string) {
     console.log('edit', id);
     this.navController.navigateForward(['tea-category-editor', id]);
+  }
+
+  private async fetchCategories(): Promise<void> {
+    this.categories = await this.teaCategories.getAll();
   }
 }

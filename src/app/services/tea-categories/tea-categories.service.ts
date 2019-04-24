@@ -50,6 +50,12 @@ export class TeaCategoriesService {
     return category.id ? this.update(category) : this.add(category);
   }
 
+  onChange(cb: () => void) {
+    this.database
+      .ready()
+      .then(() => this.database.teaCatgories.addChangeListener(cb));
+  }
+
   private async add(category: TeaCategory): Promise<void> {
     await this.database.ready();
     const doc = new MutableDocument()
