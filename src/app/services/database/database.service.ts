@@ -21,7 +21,7 @@ export class DatabaseService {
         config.setEncryptionKey('8e31f8f6-60bd-482a-9c70-69855dd02c38');
         this.teaCatgories = new Database('teacatgories', config);
         this.teaCatgories.setEngine(new CordovaEngine({
-          allResultsChunkSize: 9999 
+          allResultsChunkSize: 9999
         }));
         await this.teaCatgories.open();
         resolve();

@@ -20,5 +20,12 @@
     <ion-item>
       <ion-label style="white-space:normal">{{ databasePath }}</ion-label>
     </ion-item>
+
+    <ion-item *ngFor="let cat of categories">
+      <ion-label>
+        <div>{{ cat.name }}</div>
+        <div>{{ cat.description }}</div>
+      </ion-label>
+    </ion-item>
   </ion-list>
 </ion-content>
