@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: '',
     component: TeaCategoryEditorPage
+  },
+  {
+    path: ':id',
+    component: TeaCategoryEditorPage
   }
 ];
 

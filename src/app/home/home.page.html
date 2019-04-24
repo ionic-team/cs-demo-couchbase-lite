@@ -14,7 +14,7 @@
   </ion-fab>
 
   <ion-list>
-    <ion-item *ngFor="let cat of categories">
+    <ion-item *ngFor="let cat of categories" (click)="editTeaCategory(cat.id)">
       <ion-label>
         <div class="name">{{ cat.name }}</div>
         <div class="description">{{ cat.description }}</div>

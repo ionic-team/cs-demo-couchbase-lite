@@ -17,14 +17,6 @@ import { DatabaseService } from '../database/database.service';
 export class TeaCategoriesService {
   constructor(private database: DatabaseService) {}
 
-  async add(name: string, description: string): Promise<void> {
-    await this.database.ready();
-    const doc = new MutableDocument()
-      .setString('name', name)
-      .setString('description', description);
-    return this.database.teaCatgories.save(doc);
-  }
-
   async getAll(): Promise<Array<TeaCategory>> {
     await this.database.ready();
     const query = QueryBuilder.select(
@@ -41,5 +33,37 @@ export class TeaCategoriesService {
       name: t.name,
       description: t.description
     }));
+  }
+
+  async get(id: string): Promise<TeaCategory> {
+    await this.database.ready();
+    const d = await this.database.teaCatgories.getDocument(id);
+    const dict = d.toDictionary();
+    return {
+      id: d.getId(),
+      name: dict.name,
+      description: dict.description
+    };
+  }
+
+  async save(category: TeaCategory): Promise<void> {
+    return category.id ? this.update(category) : this.add(category);
+  }
+
+  private async add(category: TeaCategory): Promise<void> {
+    await this.database.ready();
+    const doc = new MutableDocument()
+      .setString('name', category.name)
+      .setString('description', category.description);
+    return this.database.teaCatgories.save(doc);
+  }
+
+  private async update(category: TeaCategory): Promise<void> {
+    await this.database.ready();
+    const d = await this.database.teaCatgories.getDocument(category.id);
+    const md = new MutableDocument(d.getId(), d.getSequence(), d.getData());
+    md.setString('name', category.name);
+    md.setString('description', category.description);
+    return this.database.teaCatgories.save(md);
   }
 }
