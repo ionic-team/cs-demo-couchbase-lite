@@ -14,17 +14,10 @@
   </ion-fab>
 
   <ion-list>
-    <ion-item>
-      <ion-label>{{ databaseName }}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label style="white-space:normal">{{ databasePath }}</ion-label>
-    </ion-item>
-
     <ion-item *ngFor="let cat of categories">
       <ion-label>
-        <div>{{ cat.name }}</div>
-        <div>{{ cat.description }}</div>
+        <div class="name">{{ cat.name }}</div>
+        <div class="description">{{ cat.description }}</div>
       </ion-label>
     </ion-item>
   </ion-list>
