@@ -14,11 +14,18 @@
   </ion-fab>
 
   <ion-list>
-    <ion-item *ngFor="let cat of categories" (click)="editTeaCategory(cat.id)">
-      <ion-label>
-        <div class="name">{{ cat.name }}</div>
-        <div class="description">{{ cat.description }}</div>
-      </ion-label>
-    </ion-item>
+    <ion-item-sliding *ngFor="let cat of categories">
+      <ion-item (click)="editTeaCategory(cat.id)">
+        <ion-label>
+          <div class="name">{{ cat.name }}</div>
+          <div class="description">{{ cat.description }}</div>
+        </ion-label>
+      </ion-item>
+      <ion-item-options>
+        <ion-item-option color="danger" (click)="removeTeaCategory(cat.id)">
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
