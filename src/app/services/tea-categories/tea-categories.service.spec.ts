@@ -1,13 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DatabaseService } from '../database/database.service';
 import { TeaCategoriesService } from './tea-categories.service';
 
 describe('TeaCategoriesService', () => {
   beforeEach(() =>
-    TestBed.configureTestingModule({
-      providers: [{ provide: DatabaseService, useValue: {} }]
-    })
+    TestBed.configureTestingModule({})
   );
 
   it('should be created', () => {

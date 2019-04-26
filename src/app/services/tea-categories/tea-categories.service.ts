@@ -19,7 +19,7 @@ import { TeaCategory } from '../../models/tea-category';
 })
 export class TeaCategoriesService {
   private database: Database;
-  private readyPromise: Promise<void>; 
+  private readyPromise: Promise<void>;
 
   constructor() {
     this.readyPromise = this.initializeDatabase();
@@ -58,15 +58,14 @@ export class TeaCategoriesService {
     return category.id ? this.update(category) : this.add(category);
   }
 
-  async delete(id: string): Promise<void>{
+  async delete(id: string): Promise<void> {
     await this.readyPromise;
     const d = await this.database.getDocument(id);
     return this.database.deleteDocument(d);
   }
 
   onChange(cb: () => void) {
-    this.readyPromise
-      .then(() => this.database.addChangeListener(cb));
+    this.readyPromise.then(() => this.database.addChangeListener(cb));
   }
 
   private async add(category: TeaCategory): Promise<void> {
@@ -87,14 +86,16 @@ export class TeaCategoriesService {
   }
 
   private async initializeDatabase(): Promise<void> {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       IonicCBL.onReady(async () => {
         const config = new DatabaseConfiguration();
         config.setEncryptionKey('8e31f8f6-60bd-482a-9c70-69855dd02c38');
         this.database = new Database('teacatgories', config);
-        this.database.setEngine(new CordovaEngine({
-          allResultsChunkSize: 9999
-        }));
+        this.database.setEngine(
+          new CordovaEngine({
+            allResultsChunkSize: 9999
+          })
+        );
         await this.database.open();
         resolve();
       });
