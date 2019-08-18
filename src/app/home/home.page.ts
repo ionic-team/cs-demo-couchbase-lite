@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
 
 import { TeaCategory } from '../models/tea-category';
@@ -7,7 +7,8 @@ import { TeaCategoriesService } from '../services/tea-categories/tea-categories.
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss']
+  styleUrls: ['home.page.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class HomePage implements OnInit {
   databaseName: string;
@@ -16,6 +17,7 @@ export class HomePage implements OnInit {
 
   constructor(
     private alertController: AlertController,
+    private changeDetetorRef: ChangeDetectorRef,
     private teaCategories: TeaCategoriesService,
     private navController: NavController
   ) {}
@@ -43,11 +45,11 @@ export class HomePage implements OnInit {
     const res = await alert.onDidDismiss();
     if (res.role !== 'cancel') {
       await this.teaCategories.delete(id);
-      this.fetchCategories();
     }
   }
 
   private async fetchCategories(): Promise<void> {
     this.categories = await this.teaCategories.getAll();
+    this.changeDetetorRef.detectChanges();
   }
 }
