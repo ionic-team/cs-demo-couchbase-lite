@@ -37,7 +37,7 @@ export class TeaCategoriesService {
     const ret = await query.execute();
     const res = await ret.allResults();
     return res.map(t => ({
-      id: t.id,
+      id: t._id || t.id,
       name: t.name,
       description: t.description
     }));

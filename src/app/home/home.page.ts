@@ -37,12 +37,14 @@ export class HomePage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Confirm Delete',
       message: 'Are you sure you want to permanently remove this category?',
-      buttons: [
-        { text: 'Yes', handler: () => this.teaCategories.delete(id) },
-        { text: 'No', role: 'cancel' }
-      ]
+      buttons: [{ text: 'Yes' }, { text: 'No', role: 'cancel' }]
     });
     alert.present();
+    const res = await alert.onDidDismiss();
+    if (res.role !== 'cancel') {
+      await this.teaCategories.delete(id);
+      this.fetchCategories();
+    }
   }
 
   private async fetchCategories(): Promise<void> {
