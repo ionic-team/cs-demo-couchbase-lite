@@ -74,8 +74,7 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "@ionic-enterprise/couchbase-lite": {},
-      "ionic-enterprise-plugin-couchbase-lite": {}
+      "@ionic-enterprise/couchbase-lite": {}
     },
     "platforms": [
       "android",
