@@ -4,14 +4,11 @@ This application performs full CRUD operations storing the data in a local datab
 
 ## Running the Application
 
-In order to run this application, you need access to the Ionic Enterprise Couchbase Lite plugin. This plugin currently needs to be installed in `ionic-enterprise/couchbase-lite`. This needs to be installed before you perform the `npm install` step. In the future, this plugin will be included with the other Ionic Enterprise offerings and installed in a similar manner and accessed with your key.
-
-If you do not have access to this plugin, please contact your account manager.
+In order to run this application, you need access to the Ionic Enterprise Couchbase Lite plugin. If you do not have access to this plugin, please contact your account manager.
 
 Here are the general steps required to run this application:
 
 - clone the repo and change to its root directory
-- install the Ionic Enterprise Couchbase Lite plugin as noted above
 - `npm install`
 - `npm run build`
 - `ionic cordova platform add ios` (and/or android)
