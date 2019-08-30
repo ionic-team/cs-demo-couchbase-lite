@@ -8,7 +8,7 @@ import { TeaCategoriesService } from '../services/tea-categories/tea-categories.
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePage implements OnInit {
   databaseName: string;
