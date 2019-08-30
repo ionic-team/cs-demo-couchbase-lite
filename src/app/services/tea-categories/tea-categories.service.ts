@@ -11,7 +11,7 @@ import {
   Ordering,
   QueryBuilder,
   SelectResult
-} from 'ionic-enterprise-couchbase-lite';
+} from '@ionic-enterprise/couchbase-lite';
 import { TeaCategory } from '../../models/tea-category';
 
 @Injectable({
