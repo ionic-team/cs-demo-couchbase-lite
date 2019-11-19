@@ -23,7 +23,6 @@ www/
 node_modules/
 tmp/
 temp/
-ionic-enterprise/couchbase-lite
 platforms/
 plugins/
 plugins/android.json

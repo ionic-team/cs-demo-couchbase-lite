@@ -1,5 +1,5 @@
 {
-  "name": "cs-demo-couchbase-lite",
+  "name": "cs-demo-offline-storage",
   "integrations": {
     "cordova": {}
   },

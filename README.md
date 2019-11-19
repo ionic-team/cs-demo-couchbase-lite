@@ -1,10 +1,10 @@
-# Couchbase Lite Demo - Tea Cagtegories
+# Offline Storage Demo - Tea Cagtegories
 
 This application performs full CRUD operations storing the data in a local database.
 
 ## Running the Application
 
-In order to run this application, you need access to the Ionic Enterprise Couchbase Lite plugin. If you do not have access to this plugin, please contact your account manager.
+In order to run this application, you need access to the Ionic Enterprise Offline Storage plugin. If you do not have access to this plugin, please contact your account manager.
 
 Here are the general steps required to run this application:
 
