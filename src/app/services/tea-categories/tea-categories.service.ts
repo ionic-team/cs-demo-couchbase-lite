@@ -36,11 +36,14 @@ export class TeaCategoriesService {
       .orderBy(Ordering.property('name'));
     const ret = await query.execute();
     const res = await ret.allResults();
-    return res.map(t => ({
-      id: t._id || t.id,
-      name: t.name,
-      description: t.description
-    }));
+    return res.map(t => {
+      console.log(t);
+      return {
+        id: t._id || t.id,
+        name: t.name,
+        description: t.description
+      };
+    });
   }
 
   async get(id: string): Promise<TeaCategory> {
@@ -70,9 +73,7 @@ export class TeaCategoriesService {
 
   private async add(category: TeaCategory): Promise<void> {
     await this.readyPromise;
-    const doc = new MutableDocument()
-      .setString('name', category.name)
-      .setString('description', category.description);
+    const doc = new MutableDocument().setString('name', category.name).setString('description', category.description);
     return this.database.save(doc);
   }
 
