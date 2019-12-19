@@ -1,8 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
 
 import { TeaCategory } from '../models/tea-category';
 import { TeaCategoriesService } from '../services/tea-categories/tea-categories.service';
+import { from, Observable } from 'rxjs';
+import { flatMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -13,18 +15,16 @@ import { TeaCategoriesService } from '../services/tea-categories/tea-categories.
 export class HomePage implements OnInit {
   databaseName: string;
   databasePath: string;
-  categories: Array<TeaCategory>;
+  categories$: Observable<Array<TeaCategory>>;
 
   constructor(
     private alertController: AlertController,
-    private changeDetetorRef: ChangeDetectorRef,
     private teaCategories: TeaCategoriesService,
     private navController: NavController
   ) {}
 
   ngOnInit() {
-    this.fetchCategories();
-    this.teaCategories.onChange(() => this.fetchCategories());
+    this.categories$ = this.teaCategories.changed.pipe(flatMap(() => from(this.teaCategories.getAll())));
   }
 
   addTeaCategory() {
@@ -46,10 +46,5 @@ export class HomePage implements OnInit {
     if (res.role !== 'cancel') {
       await this.teaCategories.delete(id);
     }
-  }
-
-  private async fetchCategories(): Promise<void> {
-    this.categories = await this.teaCategories.getAll();
-    this.changeDetetorRef.detectChanges();
   }
 }

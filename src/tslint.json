@@ -1,5 +1,10 @@
 {
   "extends": "../tslint.json",
+  "linterOptions": {
+    "exclude": [
+      "polyfills.ts"
+    ]
+  },
   "rules": {
     "directive-selector": [
       true,

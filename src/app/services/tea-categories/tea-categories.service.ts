@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 import {
   CordovaEngine,
@@ -20,8 +21,14 @@ import { TeaCategory } from '../../models/tea-category';
 export class TeaCategoriesService {
   private database: Database;
   private readyPromise: Promise<void>;
+  private changedSubject: BehaviorSubject<void>;
+
+  get changed(): Observable<void> {
+    return this.changedSubject.asObservable();
+  }
 
   constructor() {
+    this.changedSubject = new BehaviorSubject(null);
     this.readyPromise = this.initializeDatabase();
   }
 
@@ -97,6 +104,7 @@ export class TeaCategoriesService {
           })
         );
         await this.database.open();
+        this.database.addChangeListener(() => this.changedSubject.next());
         resolve();
       });
     });

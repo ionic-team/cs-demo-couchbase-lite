@@ -14,7 +14,7 @@
   </ion-fab>
 
   <ion-list>
-    <ion-item-sliding *ngFor="let cat of categories">
+    <ion-item-sliding *ngFor="let cat of categories$ | async">
       <ion-item (click)="editTeaCategory(cat.id)">
         <ion-label>
           <div class="name">{{ cat.name }}</div>
