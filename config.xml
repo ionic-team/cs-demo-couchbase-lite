@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.csdemoofflinestorage" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Offline Storage Demo</name>
-    <description>Ionic Enterprise Edition Offline Storage Demo</description>
+<widget id="io.ionic.csdemocouchbaselite" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Couchbase Lite Demo</name>
+    <description>Ionic Enterprise Edition Couchbase Lite Demo</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
