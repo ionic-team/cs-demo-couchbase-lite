@@ -1,4 +1,4 @@
-# Couchbase Lite Storage Demo - Tea Cagtegories
+# Couchbase Lite Storage Demo - Tea Categories
 
 This application performs full CRUD operations storing the data in a local Couchbase Lite database.  The solution used for this application is a special purpose plugin, and its functionality is tailored around a specific customer's needs. This plugin is best used only for applications that have a specific need to support Couchbase. For a better general offline storage option that is not dependent on Couchbase, please see our Offline Storage solution.
 
