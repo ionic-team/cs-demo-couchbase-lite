@@ -12,7 +12,7 @@ import {
   Ordering,
   QueryBuilder,
   SelectResult
-} from '@ionic-enterprise/offline-storage';
+} from '@ionic-enterprise/couchbase-lite';
 import { TeaCategory } from '../../models/tea-category';
 
 @Injectable({
