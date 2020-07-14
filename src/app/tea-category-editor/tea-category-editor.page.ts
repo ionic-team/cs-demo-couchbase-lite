@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-tea-category-editor',
   templateUrl: './tea-category-editor.page.html',
-  styleUrls: ['./tea-category-editor.page.scss']
+  styleUrls: ['./tea-category-editor.page.scss'],
 })
 export class TeaCategoryEditorPage implements OnInit {
   private id: string;
@@ -19,7 +19,7 @@ export class TeaCategoryEditorPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private navController: NavController,
-    private teaCategories: TeaCategoriesService
+    private teaCategories: TeaCategoriesService,
   ) {}
 
   async ngOnInit() {
@@ -39,7 +39,7 @@ export class TeaCategoryEditorPage implements OnInit {
     await this.teaCategories.save({
       id: this.id,
       name: this.name,
-      description: this.description
+      description: this.description,
     });
     this.navController.back();
   }

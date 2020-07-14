@@ -1,5 +1,11 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 import { NavController } from '@ionic/angular';
 
 import { HomePage } from './home.page';
@@ -18,8 +24,11 @@ describe('HomePage', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: NavController, useFactory: createNavControllerMock },
-        { provide: TeaCategoriesService, useFactory: createTeaCategoriesServiceMock }
-      ]
+        {
+          provide: TeaCategoriesService,
+          useFactory: createTeaCategoriesServiceMock,
+        },
+      ],
     }).compileComponents();
   }));
 

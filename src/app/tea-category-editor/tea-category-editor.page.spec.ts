@@ -4,7 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule, NavController } from '@ionic/angular';
 
-import { createNavControllerMock, createActivatedRouteMock } from '../../../test/mocks';
+import {
+  createNavControllerMock,
+  createActivatedRouteMock,
+} from '../../../test/mocks';
 import { TeaCategoryEditorPage } from './tea-category-editor.page';
 import { ActivatedRoute } from '@angular/router';
 
@@ -19,9 +22,9 @@ describe('TeaCategoryEditorPage', () => {
       providers: [
         { provide: ActivatedRoute, useFactory: createActivatedRouteMock },
         { provide: Location, useValue: {} },
-        { provide: NavController, useFactory: createNavControllerMock }
+        { provide: NavController, useFactory: createNavControllerMock },
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   }));
 

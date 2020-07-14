@@ -10,12 +10,12 @@ import { TeaCategoryEditorPage } from './tea-category-editor.page';
 const routes: Routes = [
   {
     path: '',
-    component: TeaCategoryEditorPage
+    component: TeaCategoryEditorPage,
   },
   {
     path: ':id',
-    component: TeaCategoryEditorPage
-  }
+    component: TeaCategoryEditorPage,
+  },
 ];
 
 @NgModule({
@@ -23,8 +23,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
-  declarations: [TeaCategoryEditorPage]
+  declarations: [TeaCategoryEditorPage],
 })
 export class TeaCategoryEditorPageModule {}

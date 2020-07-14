@@ -11,12 +11,12 @@ import {
   MutableDocument,
   Ordering,
   QueryBuilder,
-  SelectResult
+  SelectResult,
 } from '@ionic-enterprise/couchbase-lite';
 import { TeaCategory } from '../../models/tea-category';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TeaCategoriesService {
   private database: Database;
@@ -37,7 +37,7 @@ export class TeaCategoriesService {
     const query = QueryBuilder.select(
       SelectResult.property('name'),
       SelectResult.property('description'),
-      SelectResult.expression(Meta.id)
+      SelectResult.expression(Meta.id),
     )
       .from(DataSource.database(this.database))
       .orderBy(Ordering.property('name'));
@@ -47,7 +47,7 @@ export class TeaCategoriesService {
       return {
         id: t.id,
         name: t.name,
-        description: t.description
+        description: t.description,
       };
     });
   }
@@ -59,7 +59,7 @@ export class TeaCategoriesService {
     return {
       id: d.getId(),
       name: dict.name,
-      description: dict.description
+      description: dict.description,
     };
   }
 
@@ -79,7 +79,9 @@ export class TeaCategoriesService {
 
   private async add(category: TeaCategory): Promise<void> {
     await this.readyPromise;
-    const doc = new MutableDocument().setString('name', category.name).setString('description', category.description);
+    const doc = new MutableDocument()
+      .setString('name', category.name)
+      .setString('description', category.description);
     return this.database.save(doc);
   }
 
@@ -100,8 +102,8 @@ export class TeaCategoriesService {
         this.database = new Database('teacatgories', config);
         this.database.setEngine(
           new CordovaEngine({
-            allResultsChunkSize: 9999
-          })
+            allResultsChunkSize: 9999,
+          }),
         );
         await this.database.open();
         this.database.addChangeListener(() => this.changedSubject.next());
